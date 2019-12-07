@@ -3,7 +3,7 @@ $.ajax({
     type:'get',
     url:'/posts',
     success:function(res){
-         //  console.log(res);
+          console.log(res);
        var html=template('postsTpl',res);
        $('#postsBox').html(html);
        //获得分页得数据
@@ -41,7 +41,7 @@ $.ajax({
     type:'get',
     url:'/categories',
     success:function(res){
-        console.log(res)
+      //  console.log(res)
         var html=template('categoryTpl',{data:res});
       //  console.log(html)
       $('#categoryBox').html(html);
