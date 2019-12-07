@@ -1,3 +1,4 @@
+
 $('#logout').on('click',function(){
     var isConfirm=confirm('请问你真的要退吗');
     if(isConfirm){
@@ -17,3 +18,11 @@ $('#logout').on('click',function(){
       })
     }
 })
+
+//处理日期时间格式
+function formateDate(date){
+  //将日期字符串转换成日期对象
+  date=new Date(date);
+   return date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+
+}
