@@ -69,3 +69,20 @@ $('#filterFrom').on('submit',function(){
     //阻止表单事件默认提交行为
     return false;
 })
+
+// 删除文章
+$('#postsBox').on('click','.delete',function(){
+   if(confirm("您确定要删除此文章吗")){
+       // alert(111)
+       //获得要删除得id
+      var  id=$(this).attr('data-id');
+      //要删除得话 发送请求
+      $.ajax({
+         type:'delete',
+         url:'/posts/'+id,
+         success:function(){
+             location.reload();
+         }
+      })
+   }
+})

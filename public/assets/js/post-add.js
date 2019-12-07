@@ -47,3 +47,55 @@ $('#addForm').on('submit',function(){
     //阻止表单得默认行为得发生
      return false;
 })
+
+function getUrl(name){
+   // console.log(location.search.substr(1).split('&'));
+    var query=location.search.substr(1).split('&');
+    for(var i=0;i<query.length;i++){
+        var item=query[i].split('=');
+        //console.log(item)
+        if(item[0]==name){
+            return item[1];
+        }
+    }
+    //如果没有得话 返回-1
+    return -1;
+}
+//取文章得详情
+var id=getUrl('id');
+if(id!=-1)
+$.ajax({
+    type:'get',
+    url:'/posts/'+id,
+    success:function(res){
+        $.ajax({
+            url:'/categories',
+            type:'get',
+            success:function(categories){
+               // console.log(res);
+               res.categories=categories;
+            //  console.log(res)
+               var html=template('modifyTpl',res);
+            //   console.log(html);
+               //渲染
+               $('#partentBox').html(html);
+            }
+        })
+    }
+})
+//当修改文章表单发生提交行为
+$('#partentBox').on('submit','#modifyForm',function(){
+     //获取管理员输入得内容
+     var fromDate=$(this).serialize();
+     var id=$(this).attr('data-id');
+     //发送请求
+     $.ajax({
+         type:'put',
+         url:'/posts/'+id,
+         data:fromDate,
+         success:function(){
+             location.href='/admin/posts.html'
+         }
+     })
+     return false;
+})
