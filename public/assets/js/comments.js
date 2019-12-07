@@ -45,7 +45,7 @@ $('#commentsBox').on('click','.state',function(){
             state : state == 0 ? 1 : 0
         },
         success:function(){
-            console.log(111)
+           // console.log(111)
             location.reload();
         }
     })
