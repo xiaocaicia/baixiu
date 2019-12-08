@@ -37,3 +37,4 @@ $.ajax({
       $('.profile .name').html(res.nickName)
   }
 })
+
