@@ -26,3 +26,14 @@ function formateDate(date){
    return date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
 
 }
+
+//先服务器发送请求 获取对应的信息
+$.ajax({
+  type:'get',
+  url:'/users/'+userId,
+  success:function(res){
+      console.log(res)
+      $('.avatar').attr('src', res.avatar)
+      $('.profile .name').html(res.nickName)
+  }
+})
