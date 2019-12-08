@@ -36,5 +36,6 @@ $.ajax({
       $('.avatar').attr('src', res.avatar)
       $('.profile .name').html(res.nickName)
   }
+  
 })
 
