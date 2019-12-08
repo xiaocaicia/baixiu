@@ -26,6 +26,7 @@ $('#feature').on('change',function(){
         processData:false,
         contentType:false,
         success:function(res){
+            console.log(res)
             $('#thumbnail').val(res[0].cover)
         }
     })
