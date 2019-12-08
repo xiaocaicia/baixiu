@@ -3,7 +3,7 @@ $.ajax({
     type:'get',
     url:'/posts/recommend',
     success:function(res){
-        console.log(res)
+        //console.log(res)
         var recommendTpl=`
            {{each data}}
              <li>

@@ -31,3 +31,14 @@ $.ajax({
     }
     
 })
+//页面一加载 向服务器发送请求 获得数据
+$.ajax({
+  type:'get',
+  url:'/posts/lasted',
+      success:function(res){
+         // console.log(res);
+        var html=template('lastedTpl',{data:res})
+       // console.log(html)
+        $('#lastedBox').html(html)
+      }
+})
