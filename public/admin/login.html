@@ -46,6 +46,13 @@
             type:'post',
             data:{email,password},
             success:function(res){
+              //对用户得角色进行判断 如果事管理员就跳到首页
+              //如果事普通用户就跳转到网页首页面
+              if(res.role=='admin'){
+                location.href="/admin/index.html"
+              }else{
+                location.href='index.html'
+              }
                location.href='/admin';
                // console.log(res)
             },
